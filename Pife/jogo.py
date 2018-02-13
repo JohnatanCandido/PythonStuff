@@ -41,8 +41,9 @@ joker_preto = Carta(999, 'joker', 'Preto', 'Não tem kkkk')
 
 def printa_centro_tela():
     # lixo
-    carta_lixo = pygame.image.load(lixo[-1].url)
-    gameDisplay.blit(carta_lixo, (800, 300))
+    if len(lixo) > 0:
+        carta_lixo = pygame.image.load(lixo[-1].url)
+        gameDisplay.blit(carta_lixo, (800, 300))
 
     # bolo
     imagem_bolo = pygame.image.load(cartaVazia.url)
@@ -68,10 +69,10 @@ def printa_mensagem():
     text_rect.center = (675, 500)
     gameDisplay.blit(txt_surf, text_rect)
 
-    printa_lixo_e_bolo()
+    printa_descricao_lixo_e_bolo()
 
 
-def printa_lixo_e_bolo():
+def printa_descricao_lixo_e_bolo():
     large_text = pygame.font.Font('freesansbold.ttf', 15)
     txt_surf, text_rect = text_objects('Bolo', large_text, (0, 0, 255))
     text_rect.center = (515, 415)
@@ -112,7 +113,7 @@ def eventos_handler():
                     if 480 < x < 551:
                         jogadores[0].compra_bolo(baralho, cartaVazia)
                         mensagem = DESCARTAR
-                    elif 800 < x < 871 and len(lixo) > 1:
+                    elif 800 < x < 871 and len(lixo) > 0:
                         jogadores[0].compra_lixo(lixo, cartaVazia)
                         mensagem = DESCARTAR
             elif event.dict.get('button') == 1:
@@ -199,7 +200,6 @@ def refil_baralho():
     baralho = [c for c in lixo]
     baralho.remove(cartaVazia)
     lixo.clear()
-    lixo.append(cartaVazia)
 
 
 def novo_jogo():
@@ -212,7 +212,6 @@ def novo_jogo():
     mensagemOponente = ''
     init_baralho()
     lixo.clear()
-    lixo.append(cartaVazia)
     jogadores.clear()
 
     mao_1 = []
