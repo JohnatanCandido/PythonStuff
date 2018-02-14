@@ -11,6 +11,9 @@ lixo = []
 em_jogo = True
 mensagem = ''
 mensagemOponente = ''
+rodada = 0
+vitorias = 0
+derrotas = 0
 
 COMPRAR = 'Compre uma carta'
 DESCARTAR = 'Descarte uma carta'
@@ -70,6 +73,7 @@ def printa_mensagem():
     gameDisplay.blit(txt_surf, text_rect)
 
     printa_descricao_lixo_e_bolo()
+    printa_placar()
 
 
 def printa_descricao_lixo_e_bolo():
@@ -81,6 +85,26 @@ def printa_descricao_lixo_e_bolo():
     large_text = pygame.font.Font('freesansbold.ttf', 15)
     txt_surf, text_rect = text_objects('Lixo', large_text, (0, 0, 255))
     text_rect.center = (835, 415)
+    gameDisplay.blit(txt_surf, text_rect)
+
+
+def printa_placar():
+    # Rodada
+    large_text = pygame.font.Font('freesansbold.ttf', 15)
+    txt_surf, text_rect = text_objects('Rodada: ' + str(rodada), large_text, (0, 0, 255))
+    text_rect.center = (45, 630)
+    gameDisplay.blit(txt_surf, text_rect)
+
+    # Vitórias
+    large_text = pygame.font.Font('freesansbold.ttf', 15)
+    txt_surf, text_rect = text_objects('Vitórias: ' + str(vitorias), large_text, (0, 0, 255))
+    text_rect.center = (45, 660)
+    gameDisplay.blit(txt_surf, text_rect)
+
+    # Derrotas
+    large_text = pygame.font.Font('freesansbold.ttf', 15)
+    txt_surf, text_rect = text_objects('Derrotas: ' + str(derrotas), large_text, (0, 0, 255))
+    text_rect.center = (47, 690)
     gameDisplay.blit(txt_surf, text_rect)
 
 
@@ -98,11 +122,12 @@ def eventos_handler():
             quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if em_jogo:
-                global mensagem
+                global mensagem, vitorias
                 if event.dict.get('button') == 2:
                     if jogadores[0].checar_mao():
                         em_jogo = False
                         mensagem = GANHOU
+                        vitorias += 1
                         printa_jogos_oponente()
                 x = event.dict.get('pos')[0]
                 y = event.dict.get('pos')[1]
@@ -135,7 +160,7 @@ def checa_input_teclado(event):
 
 
 def move_ou_descarta(event):
-    global em_jogo, mensagem
+    global em_jogo, mensagem, derrotas
     if event.dict.get('button') == 1:
         jogadores[0].seleciona_carta(event.dict.get('pos')[0])
     elif event.dict.get('button') == 3:
@@ -153,6 +178,7 @@ def move_ou_descarta(event):
             if retorno_oponente[1]:
                 em_jogo = False
                 mensagem = PERDEU
+                derrotas += 1
                 printa_jogos_oponente()
             else:
                 mensagem = COMPRAR
@@ -203,10 +229,11 @@ def refil_baralho():
 
 
 def novo_jogo():
-    global em_jogo, mensagem, mensagemOponente
+    global em_jogo, mensagem, mensagemOponente, rodada
     print('---------------------')
     print('##### NOVO JOGO #####')
     print('---------------------')
+    rodada += 1
     em_jogo = True
     mensagem = COMPRAR
     mensagemOponente = ''
