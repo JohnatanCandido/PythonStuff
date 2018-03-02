@@ -9,6 +9,7 @@ class Carta:
         self.naipe = naipe
         self.url = url
 
+
 cartaVazia = Carta(99, '99', '-', '-')
 
 
@@ -91,6 +92,26 @@ class TestDecisoesOponente(unittest.TestCase):
         self.assertEqual(oponente.jogos[1][0].valor, '2')
         self.assertEqual(oponente.jogos[1][1].valor, '3')
         self.assertEqual(oponente.jogos[1][2].valor, '4')
+
+    def test_deve_ganhar_o_jogo(self):
+        mao = [
+            Carta(49, '11', 'Espadas', 'Teste'),
+            Carta(50, '12', 'Espadas', 'Teste'),
+            Carta(51, '13', 'Espadas', 'Teste'),
+            Carta(9, '10', 'Copas', 'Teste'),
+            Carta(22, '10', 'Paus', 'Teste'),
+            Carta(35, '10', 'Ouro', 'Teste'),
+            Carta(42, '4', 'Espadas', 'Teste'),
+            Carta(15, '3', 'Paus', 'Teste'),
+            Carta(16, '4', 'Paus', 'Teste')
+        ]
+
+        lixo = [Carta(17, '5', 'Paus', 'Teste')]
+
+        oponente = Oponente(mao)
+
+        oponente.jogar([], lixo, cartaVazia)
+        self.assertTrue(oponente.checar_mao())
 
 
 if __name__ == '__main__':

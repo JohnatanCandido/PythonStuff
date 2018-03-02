@@ -54,3 +54,7 @@ def printa_placar(rodada, vitorias, derrotas):
     printar_texto(15, 'Rodada: ' + str(rodada), (0, 0, 255), (45, 630))
     printar_texto(15, 'Vitórias: ' + str(vitorias), (0, 0, 255), (45, 660))
     printar_texto(15, 'Derrotas: ' + str(derrotas), (0, 0, 255), (47, 690))
+
+
+if __name__ == '__main__':
+    pass

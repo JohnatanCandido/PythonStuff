@@ -59,5 +59,6 @@ def par_sequencia(par):
             return True
     return False
 
+
 if __name__ == '__main__':
     pass

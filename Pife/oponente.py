@@ -1,4 +1,3 @@
-import pygame
 import random
 import Pife.validador as validador
 from Pife.jogador_base import JogadorBase
@@ -16,8 +15,7 @@ class Oponente(JogadorBase):
 
     def cria_par(self, c1, c2):
         if c1 not in self.cartas_usadas() and c2 not in self.cartas_usadas():
-            if c1 not in self.cartas_em_pares() and c2 not in self.cartas_em_pares():
-                self.pares.append([c1, c2])
+            self.pares.append([c1, c2])
 
     def printa_mao(self, display):
         self.organiza_cartas()
@@ -29,19 +27,16 @@ class Oponente(JogadorBase):
         for j in self.jogos:
             j.sort(key=lambda c: c.id_carta)
             self.cartas += j
+        pares = []
         for p in self.pares:
             p.sort(key=lambda c: c.id_carta)
-            self.cartas += p
-        self.cartas += cartas_soltas
+            pares += p
+        self.cartas += [c for c in set(pares)] + cartas_soltas
 
     def descarta(self, carta_vazia):
         descarte = self.escolhe_carta_para_descartar()
 
-        for i in range(len(self.pares)):
-            if descarte in self.pares[i]:
-                del self.pares[i]
-                break
-
+        self.pares = [p for p in self.pares if descarte not in p]
         return self.descartar(descarte, carta_vazia)
 
     def escolhe_carta_para_descartar(self):
@@ -69,11 +64,17 @@ class Oponente(JogadorBase):
         mao_hipotetica = self.cartas + [carta]
         mao_hipotetica.sort(key=lambda c: c.id_carta)
         self.validar_cartas(mao_hipotetica)
-        return carta in self.cartas_usadas()+self.cartas_em_pares()
+        return carta in self.cartas_usadas()+self.cartas_em_pares() and not self.trancado(mao_hipotetica, carta)
+
+    def trancado(self, cartas, carta_lixo):
+        for p in self.pares:
+            if carta_lixo in p:
+                p.sort(key=lambda c: c.id_carta)
+                if p[0].id_carta+1 == p[1].id_carta:
+                    return not self.has_cartas_soltas(cartas)
 
     def cria_jogos(self):
         self.cartas.sort(key=lambda c: c.id_carta)
-        self.limpar_jogos_e_pares()
         self.validar_cartas(self.cartas)
 
     def validar_cartas(self, cartas):
@@ -88,8 +89,8 @@ class Oponente(JogadorBase):
     def valida_e_cria_jogos(self, cartas):
         # Verifica se possui sequência
         for c1 in cartas:
-            c2 = self.busca_carta_por_id(c1.id_carta + 1)
-            c3 = self.busca_carta_por_id(c1.id_carta + 2)
+            c2 = self.busca_carta_por_id(c1.id_carta + 1, cartas)
+            c3 = self.busca_carta_por_id(c1.id_carta + 2, cartas)
             if c2 is not None and c3 is not None:
                 if validador.validar_sequencia([c1, c2, c3]):
                     if not self.is_cartas_usadas([c1, c2, c3]):
@@ -114,22 +115,20 @@ class Oponente(JogadorBase):
                 self.cria_jogo(jogo[1], jogo[2], nova_carta)
 
     def valida_e_cria_pares(self, cartas):
-        for c1 in cartas:
+        for c1 in cartas:  # Sequência
             c2 = self.busca_carta_por_id(c1.id_carta + 1)
             if c2 is None:
                 c2 = self.busca_carta_por_id(c1.id_carta + 2)
-            if c2 is not None and c2 not in self.cartas_usadas()+self.cartas_em_pares():
+            if c2 is not None and c2 not in self.cartas_usadas():
                 if validador.par_sequencia([c1, c2]):
                     self.cria_par(c1, c2)
-        for i in range(1, 14):
+        for i in range(1, 14):  # Trinca
             par = self.buscar_cartas_por_valor(str(i), cartas)
             if len(par) == 2:
-                if par[0] not in self.cartas_em_pares() and par[1] not in self.cartas_em_pares():
-                    self.cria_par(par[0], par[1])
+                self.cria_par(par[0], par[1])
 
     def jogar(self, baralho, lixo, carta_vazia):
         comprou_do_lixo = self.compra(baralho, lixo, carta_vazia)
-        self.cria_jogos()
         descarte = self.descarta(carta_vazia)
         self.organiza_cartas()
         return descarte, self.checar_mao(), comprou_do_lixo
@@ -183,6 +182,15 @@ class Oponente(JogadorBase):
                         return False
 
             return JogadorBase.checar_mao(self)
+        return False
+
+    def has_cartas_soltas(self, cartas):
+        for c in cartas:
+            for p in self.pares:
+                if c in p:
+                    break
+            else:
+                return True
         return False
 
 

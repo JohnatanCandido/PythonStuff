@@ -54,3 +54,7 @@ class JogadorBase:
         v3 = validar([self.cartas[6], self.cartas[7], self.cartas[8]])
 
         return v1 and v2 and v3
+
+
+if __name__ == '__main__':
+    pass

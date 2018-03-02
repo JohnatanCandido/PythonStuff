@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="00243729-11cb-4930-9b2a-763913c3554a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Pife/jogo.py" afterPath="$PROJECT_DIR$/Pife/jogo.py" />
+      <change beforePath="$PROJECT_DIR$/Pife/TestDecisoesOponente.py" afterPath="$PROJECT_DIR$/Pife/TestDecisoesOponente.py" />
+      <change beforePath="$PROJECT_DIR$/Pife/jogador_base.py" afterPath="$PROJECT_DIR$/Pife/jogador_base.py" />
+      <change beforePath="$PROJECT_DIR$/Pife/oponente.py" afterPath="$PROJECT_DIR$/Pife/oponente.py" />
       <change beforePath="$PROJECT_DIR$/Pife/tela_utils.py" afterPath="$PROJECT_DIR$/Pife/tela_utils.py" />
+      <change beforePath="$PROJECT_DIR$/Pife/validador.py" afterPath="$PROJECT_DIR$/Pife/validador.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,94 +17,66 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="TestDecisoesOponente.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Pife/TestDecisoesOponente.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="96" column="19" lean-forward="false" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jogo.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Pife/jogo.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="257">
-                  <caret line="149" column="18" lean-forward="false" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jogador_base.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Pife/jogador_base.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-9">
-                  <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="oponente.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Pife/oponente.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2822">
-                  <caret line="166" column="18" lean-forward="true" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="validador.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Pife/validador.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jogador.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Pife/jogador.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="237">
-                  <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="tela_utils.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Pife/tela_utils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-324">
-                  <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TestDecisoesOponente.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pife/TestDecisoesOponente.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jogo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Pife/jogo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="193" column="19" lean-forward="true" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jogador_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pife/jogador_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oponente.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pife/oponente.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="36" column="54" lean-forward="false" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validador.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pife/validador.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -158,25 +133,25 @@
         <option value="$PROJECT_DIR$/Pife/Oponente.py" />
         <option value="$PROJECT_DIR$/Pife/Jogo.py" />
         <option value="$PROJECT_DIR$/Pife/test/TestDecisoesOponente.py" />
-        <option value="$PROJECT_DIR$/Pife/validador.py" />
-        <option value="$PROJECT_DIR$/Pife/TestDecisoesOponente.py" />
         <option value="$PROJECT_DIR$/Pife/jogador.py" />
-        <option value="$PROJECT_DIR$/Pife/jogador_base.py" />
-        <option value="$PROJECT_DIR$/Pife/oponente.py" />
-        <option value="$PROJECT_DIR$/Pife/tela_utils.py" />
         <option value="$PROJECT_DIR$/Pife/jogo.py" />
+        <option value="$PROJECT_DIR$/Pife/validador.py" />
+        <option value="$PROJECT_DIR$/Pife/tela_utils.py" />
+        <option value="$PROJECT_DIR$/Pife/jogador_base.py" />
+        <option value="$PROJECT_DIR$/Pife/TestDecisoesOponente.py" />
+        <option value="$PROJECT_DIR$/Pife/oponente.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="22" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -189,7 +164,26 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PythonStuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PythonStuff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PythonStuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PythonStuff" type="462c0819:PsiDirectoryNode" />
+              <item name="Pife" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -318,20 +312,6 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveComprarDoLixo" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pife" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ProjetoTeste" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestDecisoesOponente.TestDecisoesOponente.test_deveComprarDoLixo&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
     <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -344,6 +324,20 @@
       <module name="ProjetoTeste" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pife" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ProjetoTeste" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration name="Unittests in TestDecisoesOponente.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -379,16 +373,16 @@
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestDecisoesOponente.py" />
       <item index="2" class="java.lang.String" itemvalue="Python.jogo" />
       <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveComprarDoLixo" />
-      <item index="5" class="java.lang.String" itemvalue="Python.jogador" />
+      <item index="4" class="java.lang.String" itemvalue="Python.jogador" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.jogo" />
         <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestDecisoesOponente.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois" />
-        <item index="3" class="java.lang.String" itemvalue="Python.jogador" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveComprarDoLixo" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois" />
+        <item index="4" class="java.lang.String" itemvalue="Python.jogador" />
       </list>
     </recent_temporary>
   </component>
@@ -409,34 +403,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deveTransformarUmJogoEmDois - 2018.03.01 at 20h 18m 06s.xml">
-      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deveTransformarUmJogoEmDois" configurationId="tests" />
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 19m 55s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_transformarUmJogoEmDois - 2018.02.12 at 12h 09m 30s.xml">
-      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_transformarUmJogoEmDois" configurationId="tests" />
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 20m 39s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_transformarUmJogoEmDois - 2018.02.12 at 12h 09m 57s.xml">
-      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_transformarUmJogoEmDois" configurationId="tests" />
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 21m 50s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.12 at 12h 10m 18s.xml">
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 22m 56s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 24m 47s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 25m 41s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 25m 59s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_TestDecisoesOponente_TestDecisoesOponente_test_deve_ganhar_o_jogo - 2018.03.02 at 20h 26m 11s.xml">
+      <configuration name="Unittests for TestDecisoesOponente.TestDecisoesOponente.test_deve_ganhar_o_jogo" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.03.02 at 20h 26m 15s.xml">
       <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.12 at 12h 14m 15s.xml">
-      <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.13 at 20h 35m 20s.xml">
-      <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.13 at 20h 37m 21s.xml">
-      <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.13 at 20h 39m 46s.xml">
-      <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.02.13 at 20h 54m 49s.xml">
-      <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.03.01 at 20h 18m 12s.xml">
+    <history-entry file="Unittests_in_TestDecisoesOponente_py - 2018.03.02 at 20h 36m 09s.xml">
       <configuration name="Unittests in TestDecisoesOponente.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -450,25 +444,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28477904" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3535188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31743422" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="0" y="23" width="1354" height="705" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6496711" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="0" y="23" width="1354" height="705" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49918166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29198185" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="22" y="242" width="1322" height="244" />
+      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39561272" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="22" y="242" width="1322" height="244" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28477904" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
@@ -500,7 +494,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="107" />
+      <option name="time" value="117" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -791,34 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pife/TestDecisoesOponente.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="96" column="19" lean-forward="false" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pife/validador.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pife/oponente.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="166" column="18" lean-forward="true" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pife/jogador.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -829,26 +795,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Pife/tela_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="526">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pife/validador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Pife/jogador_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Pife/oponente.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="36" column="54" lean-forward="false" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pife/TestDecisoesOponente.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Pife/jogo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="149" column="18" lean-forward="false" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+        <state relative-caret-position="220">
+          <caret line="193" column="19" lean-forward="true" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
