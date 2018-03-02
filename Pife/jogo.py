@@ -2,6 +2,7 @@ import pygame
 import random
 from Pife.jogador import Jogador
 from Pife.oponente import Oponente
+from Pife import tela_utils
 
 pygame.init()
 
@@ -37,6 +38,7 @@ class Carta:
         self.naipe = naipe
         self.url = url
 
+
 cartaVazia = Carta(99, 99, '-', 'img_cartas//fundo_carta.png')
 joker_vermelho = Carta(999, 'joker', 'Vermelho', 'Não tem kkkk')
 joker_preto = Carta(999, 'joker', 'Preto', 'Não tem kkkk')
@@ -61,56 +63,29 @@ def printa_centro_tela():
 
 def printa_mensagem():
     # Mensagem oponente
-    large_text = pygame.font.Font('freesansbold.ttf', 30)
-    txt_surf, text_rect = text_objects(mensagemOponente, large_text, (255, 0, 0))
-    text_rect.center = (675, 200)
-    gameDisplay.blit(txt_surf, text_rect)
+    tela_utils.printar_texto(gameDisplay, 30, mensagemOponente, (255, 0, 0), (675, 200))
 
     # Mensagem jogador
-    large_text = pygame.font.Font('freesansbold.ttf', 30)
-    txt_surf, text_rect = text_objects(mensagem, large_text, (255, 0, 0))
-    text_rect.center = (675, 500)
-    gameDisplay.blit(txt_surf, text_rect)
+    tela_utils.printar_texto(gameDisplay, 30, mensagem, (255, 0, 0), (675, 500))
 
     printa_descricao_lixo_e_bolo()
     printa_placar()
 
 
 def printa_descricao_lixo_e_bolo():
-    large_text = pygame.font.Font('freesansbold.ttf', 15)
-    txt_surf, text_rect = text_objects('Bolo', large_text, (0, 0, 255))
-    text_rect.center = (515, 415)
-    gameDisplay.blit(txt_surf, text_rect)
-
-    large_text = pygame.font.Font('freesansbold.ttf', 15)
-    txt_surf, text_rect = text_objects('Lixo', large_text, (0, 0, 255))
-    text_rect.center = (835, 415)
-    gameDisplay.blit(txt_surf, text_rect)
+    tela_utils.printar_texto(gameDisplay, 15, 'Bolo', (0, 0, 255), (515, 415))
+    tela_utils.printar_texto(gameDisplay, 15, 'Lixo', (0, 0, 255), (835, 415))
 
 
 def printa_placar():
     # Rodada
-    large_text = pygame.font.Font('freesansbold.ttf', 15)
-    txt_surf, text_rect = text_objects('Rodada: ' + str(rodada), large_text, (0, 0, 255))
-    text_rect.center = (45, 630)
-    gameDisplay.blit(txt_surf, text_rect)
+    tela_utils.printar_texto(gameDisplay, 15, 'Rodada: ' + str(rodada), (0, 0, 255), (45, 630))
 
     # Vitórias
-    large_text = pygame.font.Font('freesansbold.ttf', 15)
-    txt_surf, text_rect = text_objects('Vitórias: ' + str(vitorias), large_text, (0, 0, 255))
-    text_rect.center = (45, 660)
-    gameDisplay.blit(txt_surf, text_rect)
+    tela_utils.printar_texto(gameDisplay, 15, 'Vitórias: ' + str(vitorias), (0, 0, 255), (45, 660))
 
     # Derrotas
-    large_text = pygame.font.Font('freesansbold.ttf', 15)
-    txt_surf, text_rect = text_objects('Derrotas: ' + str(derrotas), large_text, (0, 0, 255))
-    text_rect.center = (47, 690)
-    gameDisplay.blit(txt_surf, text_rect)
-
-
-def text_objects(text, font, color):
-    text_surface = font.render(text, True, color)
-    return text_surface, text_surface.get_rect()
+    tela_utils.printar_texto(gameDisplay, 15, 'Derrotas: ' + str(derrotas), (0, 0, 255), (47, 690))
 
 
 def eventos_handler():
@@ -124,11 +99,7 @@ def eventos_handler():
             if em_jogo:
                 global mensagem, vitorias
                 if event.dict.get('button') == 2:
-                    if jogadores[0].checar_mao():
-                        em_jogo = False
-                        mensagem = GANHOU
-                        vitorias += 1
-                        printa_jogos_oponente()
+                    checa_fim_de_jogo()
                 x = event.dict.get('pos')[0]
                 y = event.dict.get('pos')[1]
 
@@ -136,16 +107,25 @@ def eventos_handler():
                     move_ou_descarta(event)
                 elif 300 < y < 396:
                     if 480 < x < 551:
-                        jogadores[0].compra_bolo(baralho, cartaVazia)
+                        jogadores[0].compra(baralho, False, cartaVazia)
                         mensagem = DESCARTAR
                     elif 800 < x < 871 and len(lixo) > 0:
-                        jogadores[0].compra_lixo(lixo, cartaVazia)
+                        jogadores[0].compra(lixo, True, cartaVazia)
                         mensagem = DESCARTAR
             elif event.dict.get('button') == 1:
                 novo_jogo()
                 break
         if checa_input_teclado(event):
             break
+
+
+def checa_fim_de_jogo():
+    global em_jogo, mensagem, vitorias
+    if jogadores[0].checar_mao():
+        em_jogo = False
+        mensagem = GANHOU
+        vitorias += 1
+        printa_jogos_oponente()
 
 
 def checa_input_teclado(event):
@@ -155,6 +135,9 @@ def checa_input_teclado(event):
                 return True
             if event.key == pygame.K_m:
                 jogadores[1].mostra_jogo = not jogadores[1].mostra_jogo
+                return True
+            if event.key == pygame.K_g:
+                checa_fim_de_jogo()
                 return True
         return False
 
@@ -264,6 +247,7 @@ def init_baralho():
         for j in range(13):
             url = 'img_cartas//' + str(j+1) + '_' + naipes[i] + '.png'
             baralho.append(Carta((j+(13*i+1)), str(j+1), naipes[i], url))
+
 
 if __name__ == '__main__':
     game_loop()

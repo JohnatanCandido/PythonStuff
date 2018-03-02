@@ -1,16 +1,14 @@
 import pygame
 import random
 import Pife.validador as validador
-from Pife.jogador import Jogador
+from Pife.jogador_base import JogadorBase
 
 
-class Oponente(Jogador):
+class Oponente(JogadorBase):
     def __init__(self, cartas):
-        self.cartas = cartas
+        JogadorBase.__init__(self, cartas, False, 30)
         self.jogos = []
         self.pares = []
-        self.mostra_jogo = False
-        self.carta_lixo = None
 
     def cria_jogo(self, c1, c2, c3):
         if not self.is_cartas_usadas([c1, c2, c3]):
@@ -23,14 +21,7 @@ class Oponente(Jogador):
 
     def printa_mao(self, display):
         self.organiza_cartas()
-        x = 283
-        for carta in self.cartas:
-            if self.mostra_jogo:
-                img = pygame.image.load(carta.url)
-            else:
-                img = pygame.image.load('img_cartas//fundo_carta.png')
-            display.blit(img, (x, 30))
-            x += 80
+        JogadorBase.printa_mao(self, display)
 
     def organiza_cartas(self):
         cartas_soltas = [c for c in self.cartas if c not in self.cartas_usadas()+self.cartas_em_pares()]
@@ -50,11 +41,8 @@ class Oponente(Jogador):
             if descarte in self.pares[i]:
                 del self.pares[i]
                 break
-        self.cartas.remove(descarte)
-        self.carta_lixo = None
-        self.cartas.append(carta_vazia)
 
-        return descarte
+        return self.descartar(descarte, carta_vazia)
 
     def escolhe_carta_para_descartar(self):
         cartas_validas = [c for c in self.cartas if c not in self.cartas_usadas()+self.cartas_em_pares()]
@@ -70,11 +58,10 @@ class Oponente(Jogador):
 
     def compra(self, baralho, lixo, carta_vazia):
         if self.valida_lixo(lixo[-1]):
-            self.carta_lixo = lixo[-1]
-            self.compra_lixo(lixo, carta_vazia)
+            JogadorBase.compra(self, lixo, True, carta_vazia)
             return True
         else:
-            self.compra_bolo(baralho, carta_vazia)
+            JogadorBase.compra(self, baralho, False, carta_vazia)
             self.cria_jogos()
             return False
 
@@ -188,25 +175,14 @@ class Oponente(Jogador):
 
     def checar_mao(self):
         if len(self.jogos) == 3:
-            v1 = validador.validar(self.jogos[0])
-            v2 = validador.validar(self.jogos[1])
-            v3 = validador.validar(self.jogos[2])
-
             for i in range(3):
-                if self.jogos[i][0] in self.jogos[i-1]:
-                    return False
-                if self.jogos[i][0] in self.jogos[i-2]:
-                    return False
-                if self.jogos[i][1] in self.jogos[i-1]:
-                    return False
-                if self.jogos[i][1] in self.jogos[i-2]:
-                    return False
-                if self.jogos[i][2] in self.jogos[i-1]:
-                    return False
-                if self.jogos[i][2] in self.jogos[i-2]:
-                    return False
+                for j in range(3):
+                    if self.jogos[i][j] in self.jogos[i-1]:
+                        return False
+                    if self.jogos[i][j] in self.jogos[i-2]:
+                        return False
 
-            return v1 and v2 and v3
+            return JogadorBase.checar_mao(self)
         return False
 
 
