@@ -10,8 +10,6 @@ jogadores = []
 baralho = []
 lixo = []
 em_jogo = True
-mensagem = ''
-mensagemOponente = ''
 rodada = 0
 vitorias = 0
 derrotas = 0
@@ -26,7 +24,6 @@ PERDEU = 'Você perdeu...'
 COMPROU_DO_BOLO = 'Comprou do bolo'
 COMPROU_DO_LIXO = 'Comprou do lixo'
 
-gameDisplay = pygame.display.set_mode((1366, 768), pygame.RESIZABLE)
 pygame.display.set_caption('Pife 2.0')
 clock = pygame.time.Clock()
 
@@ -44,50 +41,6 @@ joker_vermelho = Carta(999, 'joker', 'Vermelho', 'Não tem kkkk')
 joker_preto = Carta(999, 'joker', 'Preto', 'Não tem kkkk')
 
 
-def printa_centro_tela():
-    # lixo
-    if len(lixo) > 0:
-        carta_lixo = pygame.image.load(lixo[-1].url)
-        gameDisplay.blit(carta_lixo, (800, 300))
-
-    # bolo
-    imagem_bolo = pygame.image.load(cartaVazia.url)
-    gameDisplay.blit(imagem_bolo, (480, 300))
-
-    printa_mensagem()
-
-    # pygame.draw.rect(gameDisplay, (0, 200, 0), [615, 320, 120, 60])
-    # OBS: isso seria um botão para reinciar o jogo mas pressionar espaço já faz isso.
-    # Talvez outra hora eu faça...
-
-
-def printa_mensagem():
-    # Mensagem oponente
-    tela_utils.printar_texto(gameDisplay, 30, mensagemOponente, (255, 0, 0), (675, 200))
-
-    # Mensagem jogador
-    tela_utils.printar_texto(gameDisplay, 30, mensagem, (255, 0, 0), (675, 500))
-
-    printa_descricao_lixo_e_bolo()
-    printa_placar()
-
-
-def printa_descricao_lixo_e_bolo():
-    tela_utils.printar_texto(gameDisplay, 15, 'Bolo', (0, 0, 255), (515, 415))
-    tela_utils.printar_texto(gameDisplay, 15, 'Lixo', (0, 0, 255), (835, 415))
-
-
-def printa_placar():
-    # Rodada
-    tela_utils.printar_texto(gameDisplay, 15, 'Rodada: ' + str(rodada), (0, 0, 255), (45, 630))
-
-    # Vitórias
-    tela_utils.printar_texto(gameDisplay, 15, 'Vitórias: ' + str(vitorias), (0, 0, 255), (45, 660))
-
-    # Derrotas
-    tela_utils.printar_texto(gameDisplay, 15, 'Derrotas: ' + str(derrotas), (0, 0, 255), (47, 690))
-
-
 def eventos_handler():
     global em_jogo
 
@@ -97,7 +50,7 @@ def eventos_handler():
             quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if em_jogo:
-                global mensagem, vitorias
+                global vitorias
                 if event.dict.get('button') == 2:
                     checa_fim_de_jogo()
                 x = event.dict.get('pos')[0]
@@ -108,10 +61,10 @@ def eventos_handler():
                 elif 300 < y < 396:
                     if 480 < x < 551:
                         jogadores[0].compra(baralho, False, cartaVazia)
-                        mensagem = DESCARTAR
+                        tela_utils.msg_player = DESCARTAR
                     elif 800 < x < 871 and len(lixo) > 0:
                         jogadores[0].compra(lixo, True, cartaVazia)
-                        mensagem = DESCARTAR
+                        tela_utils.msg_player = DESCARTAR
             elif event.dict.get('button') == 1:
                 novo_jogo()
                 break
@@ -120,10 +73,10 @@ def eventos_handler():
 
 
 def checa_fim_de_jogo():
-    global em_jogo, mensagem, vitorias
+    global em_jogo, vitorias
     if jogadores[0].checar_mao():
         em_jogo = False
-        mensagem = GANHOU
+        tela_utils.msg_player = GANHOU
         vitorias += 1
         printa_jogos_oponente()
 
@@ -143,33 +96,32 @@ def checa_input_teclado(event):
 
 
 def move_ou_descarta(event):
-    global em_jogo, mensagem, derrotas
+    global em_jogo, derrotas
     if event.dict.get('button') == 1:
         jogadores[0].seleciona_carta(event.dict.get('pos')[0])
     elif event.dict.get('button') == 3:
         try:
             descarte = jogadores[0].descartar(event.dict.get('pos')[0], cartaVazia)
         except ValueError:
-            mensagem = DESCARTE_INVALIDO
+            tela_utils.msg_player = DESCARTE_INVALIDO
             descarte = None
         jogadores[0].carta_selecionada = None
         if descarte is not None:
             lixo.append(descarte)
-            mensagem = ESPERAR
+            tela_utils.msg_player = ESPERAR
 
             retorno_oponente = jogadores[1].jogar(baralho, lixo, cartaVazia)
             if retorno_oponente[1]:
                 em_jogo = False
-                mensagem = PERDEU
+                tela_utils.msg_player = PERDEU
                 derrotas += 1
                 printa_jogos_oponente()
             else:
-                mensagem = COMPRAR
-            global mensagemOponente
+                tela_utils.msg_player = COMPRAR
             if retorno_oponente[2]:
-                mensagemOponente = COMPROU_DO_LIXO
+                tela_utils.msg_oponente = COMPROU_DO_LIXO
             else:
-                mensagemOponente = COMPROU_DO_BOLO
+                tela_utils.msg_oponente = COMPROU_DO_BOLO
             lixo.append(retorno_oponente[0])
 
 
@@ -191,12 +143,11 @@ def game_loop():
     global baralho
     novo_jogo()
     while True:
-        gameDisplay.fill((0, 155, 0))
-        printa_centro_tela()
+        tela_utils.printa_tela(rodada, vitorias, derrotas, lixo)
         if not em_jogo:
             jogadores[1].mostra_jogo = True
         for j in jogadores:
-            j.printa_mao(gameDisplay)
+            j.printa_mao(tela_utils.display)
         pygame.display.update()
         clock.tick(30)
         eventos_handler()
@@ -212,14 +163,13 @@ def refil_baralho():
 
 
 def novo_jogo():
-    global em_jogo, mensagem, mensagemOponente, rodada
+    global em_jogo, rodada
     print('---------------------')
     print('##### NOVO JOGO #####')
     print('---------------------')
     rodada += 1
     em_jogo = True
-    mensagem = COMPRAR
-    mensagemOponente = ''
+    tela_utils.init(cartaVazia, COMPRAR)
     init_baralho()
     lixo.clear()
     jogadores.clear()
@@ -250,6 +200,7 @@ def init_baralho():
 
 
 if __name__ == '__main__':
+    tela_utils.display = pygame.display.set_mode((1366, 768), pygame.RESIZABLE)
     game_loop()
 
 
