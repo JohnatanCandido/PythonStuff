@@ -44,15 +44,19 @@ class Oponente(JogadorBase):
         if len(cartas_validas) == 0:
             for p in self.pares:
                 p.sort(key=lambda c: c.id_carta)
-                if (p[0].id_carta + 2) == p[1].id_carta and p[0] != self.carta_lixo:
-                    return p[0]
+                if p[0] != self.carta_lixo and p[1] != self.carta_lixo:
+                    if (p[0].id_carta + 2) == p[1].id_carta:
+                        pares_1 = len([p for p in self.pares if p[0] in p])
+                        pares_2 = len([p for p in self.pares if p[1] in p])
+                        if pares_1 == pares_2 == 1:
+                            return p[0]
             else:
                 cartas_validas = [c for c in self.cartas if c not in self.cartas_usadas() and c != self.carta_lixo]
 
         return cartas_validas[random.randrange(len(cartas_validas))]
 
     def compra(self, baralho, lixo, carta_vazia):
-        if self.valida_lixo(lixo[-1]):
+        if len(lixo) > 0 and self.valida_lixo(lixo[-1]):
             JogadorBase.compra(self, lixo, True, carta_vazia)
             return True
         else:
@@ -93,7 +97,12 @@ class Oponente(JogadorBase):
             c3 = self.busca_carta_por_id(c1.id_carta + 2, cartas)
             if c2 is not None and c3 is not None:
                 if validador.validar_sequencia([c1, c2, c3]):
-                    if not self.is_cartas_usadas([c1, c2, c3]):
+                    self.cria_jogo(c1, c2, c3)
+            if c1.valor == '12':
+                c2 = self.busca_carta_por_id(c1.id_carta + 1, cartas)
+                c3 = self.busca_carta_por_id(c1.id_carta - 11, cartas)
+                if c2 is not None and c3 is not None:
+                    if validador.validar_sequencia([c1, c2, c3]):
                         self.cria_jogo(c1, c2, c3)
 
         self.tenta_transformar_um_jogo_em_dois(cartas)
@@ -174,13 +183,6 @@ class Oponente(JogadorBase):
 
     def checar_mao(self):
         if len(self.jogos) == 3:
-            for i in range(3):
-                for j in range(3):
-                    if self.jogos[i][j] in self.jogos[i-1]:
-                        return False
-                    if self.jogos[i][j] in self.jogos[i-2]:
-                        return False
-
             return JogadorBase.checar_mao(self)
         return False
 

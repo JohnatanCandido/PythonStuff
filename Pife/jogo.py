@@ -24,7 +24,7 @@ PERDEU = 'Você perdeu...'
 COMPROU_DO_BOLO = 'Comprou do bolo'
 COMPROU_DO_LIXO = 'Comprou do lixo'
 
-pygame.display.set_caption('Pife 2.0')
+pygame.display.set_caption('Pife 2.1')
 clock = pygame.time.Clock()
 
 
@@ -35,8 +35,11 @@ class Carta:
         self.naipe = naipe
         self.url = url
 
+    def __str__(self):
+        return self.valor + ' - ' + self.naipe
 
-cartaVazia = Carta(99, 99, '-', 'img_cartas//fundo_carta.png')
+
+cartaVazia = Carta(99, 'Carta', 'Vazia', 'img_cartas//fundo_carta.png')
 joker_vermelho = Carta(999, 'joker', 'Vermelho', 'Não tem kkkk')
 joker_preto = Carta(999, 'joker', 'Preto', 'Não tem kkkk')
 
@@ -125,22 +128,22 @@ def move_ou_descarta(event):
             lixo.append(retorno_oponente[0])
 
 
-def printa_jogos_oponente():
-    o = jogadores[1]
+def printa_jogos_oponente(i=1):
+    o = jogadores[i]
     print('### JOGOS ###')
     for j in o.jogos:
         for c in j:
-            print(c.valor + ' - ' + c.naipe)
+            print(c.__str__())
         print('----------------')
     print('### PARES ###')
     for p in o.pares:
         for c in p:
-            print(c.valor + ' - ' + c.naipe)
+            print(c.__str__())
         print('----------------')
 
 
 def game_loop():
-    global baralho
+    tela_utils.display = pygame.display.set_mode((1366, 768), pygame.RESIZABLE)
     novo_jogo()
     while True:
         tela_utils.printa_tela(rodada, vitorias, derrotas, lixo)
@@ -158,15 +161,14 @@ def game_loop():
 def refil_baralho():
     global baralho
     baralho = [c for c in lixo]
-    baralho.remove(cartaVazia)
     lixo.clear()
 
 
-def novo_jogo():
+def novo_jogo(testes=False):
     global em_jogo, rodada
-    print('---------------------')
-    print('##### NOVO JOGO #####')
-    print('---------------------')
+    if not testes:
+        for _ in range(20):
+            print('.')
     rodada += 1
     em_jogo = True
     tela_utils.init(cartaVazia, COMPRAR)
@@ -186,7 +188,10 @@ def novo_jogo():
 
     mao_1.append(cartaVazia)  # carta extra
     mao_2.append(cartaVazia)  # carta extra
-    jogadores.append(Jogador(mao_1))
+    if testes:
+        jogadores.append(Oponente(mao_1))
+    else:
+        jogadores.append(Jogador(mao_1))
     jogadores.append(Oponente(mao_2))
 
 
@@ -199,9 +204,35 @@ def init_baralho():
             baralho.append(Carta((j+(13*i+1)), str(j+1), naipes[i], url))
 
 
+def oponente_vs_oponente(jogos):
+    wins = [0, 0]
+    for jogo in range(jogos):
+        novo_jogo(True)
+        while True:
+            for i in range(2):
+                descarte, ganhou, comp_lixo = jogadores[i].jogar(baralho, lixo, cartaVazia)
+                lixo.append(descarte)
+                if ganhou:
+                    wins[i] += 1
+                    break
+                if len(baralho) == 0:
+                    refil_baralho()
+            else:
+                continue
+            break
+        if jogo % 100 == 0:
+            print('[' + str(wins[0]) + ',' + str(wins[1]) + '] #' + ' Diferença: ' + str((wins[0] - wins[1])))
+    if wins[0] > wins[1]:
+        print('Jogador 1')
+    elif wins[1] > wins[0]:
+        print('Jogador 2')
+    else:
+        print('Empate')
+
+
 if __name__ == '__main__':
-    tela_utils.display = pygame.display.set_mode((1366, 768), pygame.RESIZABLE)
     game_loop()
+    # oponente_vs_oponente(1000)
 
 
 pygame.quit()

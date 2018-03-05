@@ -16,7 +16,7 @@ class JogadorBase:
             self.xs.append([i*80+283, i*80+283+71])
 
     def compra(self, bolo, is_lixo, carta_vazia):
-        if len([c for c in self.cartas if c.naipe == '-']) == 1:
+        if len([c for c in self.cartas if c.naipe == 'Vazia']) == 1:
             if is_lixo:
                 carta = bolo[-1]
                 self.carta_lixo = carta
@@ -27,7 +27,7 @@ class JogadorBase:
             self.cartas.append(carta)
 
     def descartar(self, carta, carta_vazia):
-        if carta is not None and len([c for c in self.cartas if c.naipe == '-']) == 0:
+        if carta is not None and len([c for c in self.cartas if c.naipe == 'Vazia']) == 0:
             if carta != self.carta_lixo:
                 self.cartas.remove(carta)
                 self.cartas.append(carta_vazia)
@@ -42,7 +42,7 @@ class JogadorBase:
             img = pygame.image.load(self.cartas[i].url)
             if self.cartas[i] == self.carta_selecionada:
                 display.blit(img, (self.xs[i][0], self.y - 10))
-            elif self.mostra_jogo and self.cartas[i].url != '-':
+            elif self.mostra_jogo:
                 display.blit(img, (self.xs[i][0], self.y))
             else:
                 img = pygame.image.load('img_cartas//fundo_carta.png')

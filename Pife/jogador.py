@@ -7,7 +7,7 @@ class Jogador(JogadorBase):
 
     def encontra_carta(self, x):
         for i in range(10):
-            if self.xs[i][0] < x < self.xs[i][1] and self.cartas[i].naipe != '-':
+            if self.xs[i][0] < x < self.xs[i][1] and self.cartas[i].naipe != 'Vazia':
                 return self.cartas[i]
         return None
 

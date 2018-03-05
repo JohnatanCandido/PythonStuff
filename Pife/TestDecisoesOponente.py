@@ -9,8 +9,11 @@ class Carta:
         self.naipe = naipe
         self.url = url
 
+    def __str__(self):
+        return self.valor + ' - ' + self.naipe
 
-cartaVazia = Carta(99, '99', '-', '-')
+
+cartaVazia = Carta(99, 'Carta', 'Vazia', 'Teste')
 
 
 class TestDecisoesOponente(unittest.TestCase):
@@ -111,6 +114,44 @@ class TestDecisoesOponente(unittest.TestCase):
         oponente = Oponente(mao)
 
         oponente.jogar([], lixo, cartaVazia)
+        self.assertTrue(oponente.checar_mao())
+
+    def test_deve_criar_seq_dama_rei_as(self):
+        mao = [
+            Carta(39, '1', 'Espadas', 'Teste'),
+            Carta(50, '12', 'Espadas', 'Teste'),
+            Carta(51, '13', 'Espadas', 'Teste'),
+            Carta(9, '10', 'Copas', 'Teste'),
+            Carta(22, '10', 'Paus', 'Teste'),
+            Carta(35, '10', 'Ouro', 'Teste'),
+            Carta(17, '5', 'Paus', 'Teste'),
+            Carta(15, '3', 'Paus', 'Teste'),
+            Carta(16, '4', 'Paus', 'Teste')
+        ]
+
+        oponente = Oponente(mao)
+        oponente.cria_jogos()
+        oponente.organiza_cartas()
+
+        self.assertTrue(oponente.checar_mao())
+
+    def test_conflito_trinca_e_sequencia(self):
+        mao = [
+            Carta(6, '6', 'Copas', 'Teste'),
+            Carta(32, '6', 'Ouro', 'Teste'),
+            Carta(5, '5', 'Copas', 'Teste'),
+            Carta(48, '9', 'Espadas', 'Teste'),
+            Carta(45, '6', 'Espadas', 'Teste'),
+            Carta(19, '6', 'Paus', 'Teste'),
+            Carta(7, '7', 'Copas', 'Teste'),
+            Carta(47, '8', 'Espadas', 'Teste'),
+            Carta(49, '10', 'Espadas', 'Teste')
+        ]
+
+        oponente = Oponente(mao)
+        oponente.cria_jogos()
+        oponente.organiza_cartas()
+
         self.assertTrue(oponente.checar_mao())
 
 
