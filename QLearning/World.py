@@ -57,6 +57,7 @@ def render_grid():
     for (i, j) in walls:
         board.create_rectangle(i*Width, j*Width, (i+1)*Width, (j+1)*Width, fill="black", width=1)
 
+
 render_grid()
 
 
@@ -120,8 +121,10 @@ def restart_game():
     restart = False
     board.coords(me, player[0]*Width+Width*2/10, player[1]*Width+Width*2/10, player[0]*Width+Width*8/10, player[1]*Width+Width*8/10)
 
+
 def has_restarted():
     return restart
+
 
 master.bind("<Up>", call_up)
 master.bind("<Down>", call_down)
